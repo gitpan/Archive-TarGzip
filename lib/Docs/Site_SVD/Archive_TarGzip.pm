@@ -10,22 +10,26 @@ use warnings;
 use warnings::register;
 
 use vars qw($VERSION $DATE $FILE );
-$VERSION = '0.02';
-$DATE = '2003/09/12';
+$VERSION = '0.03';
+$DATE = '2004/05/14';
 $FILE = __FILE__;
 
 use vars qw(%INVENTORY);
 %INVENTORY = (
-    'lib/Docs/Site_SVD/Archive_TarGzip.pm' => [qw(0.02 2003/09/12), 'revised 0.01'],
-    'MANIFEST' => [qw(0.02 2003/09/12), 'generated, replaces 0.01'],
-    'Makefile.PL' => [qw(0.02 2003/09/12), 'generated, replaces 0.01'],
-    'README' => [qw(0.02 2003/09/12), 'generated, replaces 0.01'],
-    'lib/Archive/TarGzip.pm' => [qw(0.02 2003/09/12), 'revised 0.01'],
-    't/Archive/TarGzip.d' => [qw(0.02 2003/09/12), 'revised 0.01'],
-    't/Archive/TarGzip.pm' => [qw(0.02 2003/09/12), 'revised 0.01'],
-    't/Archive/TarGzip.t' => [qw(0.02 2003/09/12), 'revised 0.01'],
-    'tlib/File/Package.pm' => [qw(1.12 2003/09/12), 'unchanged'],
-    'tlib/Test/Tech.pm' => [qw(1.13 2003/09/12), 'revised 1.12'],
+    'lib/Docs/Site_SVD/Archive_TarGzip.pm' => [qw(0.03 2004/05/14), 'revised 0.02'],
+    'MANIFEST' => [qw(0.03 2004/05/14), 'generated, replaces 0.02'],
+    'Makefile.PL' => [qw(0.03 2004/05/14), 'generated, replaces 0.02'],
+    'README' => [qw(0.03 2004/05/14), 'generated, replaces 0.02'],
+    'lib/Archive/TarGzip.pm' => [qw(0.03 2004/05/14), 'revised 0.02'],
+    't/Archive/TarGzip.d' => [qw(0.03 2004/05/14), 'revised 0.02'],
+    't/Archive/TarGzip.pm' => [qw(0.01 2003/09/12), 'unchanged'],
+    't/Archive/TarGzip.t' => [qw(0.03 2004/05/14), 'revised 0.02'],
+    't/Archive/File/SmartNL.pm' => [qw(1.16 2004/05/14), 'new'],
+    't/Archive/File/Package.pm' => [qw(1.17 2004/05/14), 'new'],
+    't/Archive/Test/Tech.pm' => [qw(1.25 2004/05/14), 'new'],
+    't/Archive/Data/Secs2.pm' => [qw(1.23 2004/05/14), 'new'],
+    't/Archive/Data/SecsPack.pm' => [qw(0.08 2004/05/14), 'new'],
+    't/Archive/Data/Startup.pm' => [qw(0.06 2004/05/14), 'new'],
     't/Archive/TarGzip/expected/Makefile.PL' => [qw(0.01 2003/08/04), 'unchanged'],
     't/Archive/TarGzip/expected/MANIFEST' => [qw(0.01 2003/08/04), 'unchanged'],
     't/Archive/TarGzip/expected/README' => [qw(0.01 2003/08/04), 'unchanged'],
@@ -52,19 +56,23 @@ use vars qw(%INVENTORY);
 
 
 
+=head1 NAME
+
+Docs::Site_SVD::Archive_TarGzip - tar and gzip or untar and gunzip with a small memory footprint
+
 =head1 Title Page
 
  Software Version Description
 
  for
 
- Archive::TarGzip - tar and gzip or untar and gunzip with a small memory footprint
+ Docs::Site_SVD::Archive_TarGzip - tar and gzip or untar and gunzip with a small memory footprint
 
- Revision: A
+ Revision: B
 
- Version: 0.02
+ Version: 0.03
 
- Date: 2003/09/12
+ Date: 2004/05/14
 
  Prepared for: General Public 
 
@@ -105,7 +113,7 @@ for very large archive files.
 
 =head2 1.3 Document overview.
 
-This document releases Archive::TarGzip version 0.02
+This document releases Archive::TarGzip version 0.03
 providing a description of the inventory, installation
 instructions and other information necessary to
 utilize and track this release.
@@ -118,12 +126,14 @@ system file specification.
 
 =head2 3.1 Inventory of materials released.
 
-This document releases the file found
-at the following repository(s):
+This document releases the file 
 
-   http://www.softwarediamonds/packages/Archive-TarGzip-0.02
-   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Archive-TarGzip-0.02
+ Archive-TarGzip-0.03.tar.gz
 
+found at the following repository(s):
+
+  http://www.softwarediamonds/packages/
+  http://www.perl.com/CPAN/authors/id/S/SO/SOFTDIA/
 
 Restrictions regarding duplication and license provisions
 are as follows:
@@ -162,6 +172,21 @@ disclaimer in the documentation and/or
 other materials provided with the
 distribution.
 
+=item 3
+
+Commercial installation of the binary or source
+must visually present to the installer 
+the above copyright notice,
+this list of conditions intact,
+that the original source is available
+at http://softwarediamonds.com
+and provide means
+for the installer to actively accept
+the list of conditions; 
+otherwise, a license fee must be paid to
+Softwareware Diamonds.
+
+
 =back
 
 SOFTWARE DIAMONDS, http://www.SoftwareDiamonds.com,
@@ -190,16 +215,20 @@ consists of the following files:
 
  file                                                         version date       comment
  ------------------------------------------------------------ ------- ---------- ------------------------
- lib/Docs/Site_SVD/Archive_TarGzip.pm                         0.02    2003/09/12 revised 0.01
- MANIFEST                                                     0.02    2003/09/12 generated, replaces 0.01
- Makefile.PL                                                  0.02    2003/09/12 generated, replaces 0.01
- README                                                       0.02    2003/09/12 generated, replaces 0.01
- lib/Archive/TarGzip.pm                                       0.02    2003/09/12 revised 0.01
- t/Archive/TarGzip.d                                          0.02    2003/09/12 revised 0.01
- t/Archive/TarGzip.pm                                         0.02    2003/09/12 revised 0.01
- t/Archive/TarGzip.t                                          0.02    2003/09/12 revised 0.01
- tlib/File/Package.pm                                         1.12    2003/09/12 unchanged
- tlib/Test/Tech.pm                                            1.13    2003/09/12 revised 1.12
+ lib/Docs/Site_SVD/Archive_TarGzip.pm                         0.03    2004/05/14 revised 0.02
+ MANIFEST                                                     0.03    2004/05/14 generated, replaces 0.02
+ Makefile.PL                                                  0.03    2004/05/14 generated, replaces 0.02
+ README                                                       0.03    2004/05/14 generated, replaces 0.02
+ lib/Archive/TarGzip.pm                                       0.03    2004/05/14 revised 0.02
+ t/Archive/TarGzip.d                                          0.03    2004/05/14 revised 0.02
+ t/Archive/TarGzip.pm                                         0.01    2003/09/12 unchanged
+ t/Archive/TarGzip.t                                          0.03    2004/05/14 revised 0.02
+ t/Archive/File/SmartNL.pm                                    1.16    2004/05/14 new
+ t/Archive/File/Package.pm                                    1.17    2004/05/14 new
+ t/Archive/Test/Tech.pm                                       1.25    2004/05/14 new
+ t/Archive/Data/Secs2.pm                                      1.23    2004/05/14 new
+ t/Archive/Data/SecsPack.pm                                   0.08    2004/05/14 new
+ t/Archive/Data/Startup.pm                                    0.06    2004/05/14 new
  t/Archive/TarGzip/expected/Makefile.PL                       0.01    2003/08/04 unchanged
  t/Archive/TarGzip/expected/MANIFEST                          0.01    2003/08/04 unchanged
  t/Archive/TarGzip/expected/README                            0.01    2003/08/04 unchanged
@@ -226,6 +255,14 @@ Outsource the gzip compression to Tie::Gzip.
 
 Change the mode on tar directories from 666 to 777.
 
+=item Archive::TarGzip-0.03
+
+The lastest build of Test::STDmaker expects the test library in the same
+directory as the test script.
+Coordiated with the lastest Test::STDmaker by moving the
+test library from tlib to t/Archive, the same directory as the test script
+and deleting the test library File::TestPath program module.
+
 =back
 
 =head2 3.4 Adaptation data.
@@ -250,23 +287,44 @@ and installation support are as follows:
 
 =item Installation Instructions.
 
-To installed the release file, use the CPAN module in the Perl release
+To installed the release file, use the CPAN module
+pr PPM module in the Perl release
 or the INSTALL.PL script at the following web site:
 
  http://packages.SoftwareDiamonds.com
 
 Follow the instructions for the the chosen installation software.
 
-The distribution file is at the following respositories:
+If all else fails, the file may be manually installed.
+Enter one of the following repositories in a web browser:
 
-   http://www.softwarediamonds/packages/Archive-TarGzip-0.02
-   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Archive-TarGzip-0.02
+  http://www.softwarediamonds/packages/
+  http://www.perl.com/CPAN/authors/id/S/SO/SOFTDIA/
 
+Right click on 'Archive-TarGzip-0.03.tar.gz' and download to a temporary
+installation directory.
+Enter the following where $make is 'nmake' for microsoft
+windows; otherwise 'make'.
+
+ gunzip Archive-TarGzip-0.03.tar.gz
+ tar -xf Archive-TarGzip-0.03.tar
+ perl Makefile.PL
+ $make test
+ $make install
+
+On Microsoft operating system, nmake, tar, and gunzip 
+must be in the exeuction path. If tar and gunzip are
+not install, download and install unxutils from
+
+ http://packages.softwarediamonds.com
 
 =item Prerequistes.
 
  'Tie::Gzip' => '0.01',
- 'File::AnySpec' => '1.11'
+ 'File::AnySpec' => '1.11',
+ 'Data::Startup' => '0.02',
+ 'File::Package' => '0.00',
+ 'File::Where' => '0.00',
 
 
 =item Security, privacy, or safety precautions.
@@ -341,15 +399,15 @@ extension for a Perl test script file
 __DATA__
 
 DISTNAME: Archive-TarGzip^
-VERSION : 0.02^
+VERSION : 0.03^
 FREEZE: 0^
 PREVIOUS_DISTNAME:  ^
-PREVIOUS_RELEASE: 0.01^
-REVISION: A^
+PREVIOUS_RELEASE: 0.02^
+REVISION: B^
 
 AUTHOR  : SoftwareDiamonds.com E<lt>support@SoftwareDiamonds.comE<gt>^
 ABSTRACT: tar and gzip or untar and gunzip with a small memory footprint^
-TITLE   : Archive::TarGzip - tar and gzip or untar and gunzip with a small memory footprint^
+TITLE   : Docs::Site_SVD::Archive_TarGzip - tar and gzip or untar and gunzip with a small memory footprint^
 END_USER: General Public^
 COPYRIGHT: copyright © 2003 Software Diamonds^
 CLASSIFICATION: NONE^
@@ -360,7 +418,7 @@ SVD_FSPEC: Unix^
 REPOSITORY_DIR: packages^
 REPOSITORY: 
   http://www.softwarediamonds/packages/
-  http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/
+  http://www.perl.com/CPAN/authors/id/S/SO/SOFTDIA/
 ^
 
 COMPRESS: gzip^
@@ -372,8 +430,12 @@ CHANGE2CURRENT:  ^
 AUTO_REVISE: 
 lib/Archive/TarGzip.pm
 t/Archive/TarGzip.*
-lib/File/Package.pm => tlib/File/Package.pm
-lib/Test/Tech.pm => tlib/Test/Tech.pm
+lib/File/SmartNL.pm => t/Archive/File/SmartNL.pm
+lib/File/Package.pm => t/Archive/File/Package.pm
+lib/Test/Tech.pm => t/Archive/Test/Tech.pm
+lib/Data/Secs2.pm => t/Archive/Data/Secs2.pm
+lib/Data/SecsPack.pm => t/Archive/Data/SecsPack.pm
+lib/Data/Startup.pm => t/Archive/Data/Startup.pm
 ^
 
 REPLACE: 
@@ -385,10 +447,13 @@ t/Archive/TarGzip/expected/t/Data/*
 
 PREREQ_PM:
 'Tie::Gzip' => '0.01',
-'File::AnySpec' => '1.11'
+'File::AnySpec' => '1.11',
+'Data::Startup' => '0.02',
+'File::Package' => '0.00',
+'File::Where' => '0.00',
 ^
 
-
+README_PODS: lib/Archive/TarGzip.pm^
 TESTS: t/Archive/TarGzip.t^
 EXE_FILES:  ^
 
@@ -406,6 +471,14 @@ Originated
 Outsource the gzip compression to Tie::Gzip.
 
 Change the mode on tar directories from 666 to 777.
+
+\=item Archive::TarGzip-0.03
+
+The lastest build of Test::STDmaker expects the test library in the same
+directory as the test script.
+Coordiated with the lastest Test::STDmaker by moving the
+test library from tlib to t/Archive, the same directory as the test script
+and deleting the test library File::TestPath program module.
 
 \=back
 
@@ -459,6 +532,21 @@ disclaimer in the documentation and/or
 other materials provided with the
 distribution.
 
+\=item 3
+
+Commercial installation of the binary or source
+must visually present to the installer 
+the above copyright notice,
+this list of conditions intact,
+that the original source is available
+at http://softwarediamonds.com
+and provide means
+for the installer to actively accept
+the list of conditions; 
+otherwise, a license fee must be paid to
+Softwareware Diamonds.
+
+
 \=back
 
 SOFTWARE DIAMONDS, http://www.SoftwareDiamonds.com,
@@ -481,16 +569,38 @@ ANY WAY OUT OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 INSTALLATION:
-To installed the release file, use the CPAN module in the Perl release
+To installed the release file, use the CPAN module
+pr PPM module in the Perl release
 or the INSTALL.PL script at the following web site:
 
  http://packages.SoftwareDiamonds.com
 
 Follow the instructions for the the chosen installation software.
 
-The distribution file is at the following respositories:
+If all else fails, the file may be manually installed.
+Enter one of the following repositories in a web browser:
 
 ${REPOSITORY}
+
+Right click on '${DIST_FILE}' and download to a temporary
+installation directory.
+Enter the following where $make is 'nmake' for microsoft
+windows; otherwise 'make'.
+
+ gunzip ${BASE_DIST_FILE}.tar.${COMPRESS_SUFFIX}
+ tar -xf ${BASE_DIST_FILE}.tar
+ perl Makefile.PL
+ $make test
+ $make install
+
+On Microsoft operating system, nmake, tar, and gunzip 
+must be in the exeuction path. If tar and gunzip are
+not install, download and install unxutils from
+
+ http://packages.softwarediamonds.com
+^
+
+SUPPORT: 603 882-0846 E<lt>support@SoftwareDiamonds.comE<gt>
 ^
 
 SUPPORT: 603 882-0846 E<lt>support@SoftwareDiamonds.comE<gt>^
@@ -537,5 +647,11 @@ HTML:
 <p><br>
 ^
 ~-~
+
+
+
+
+
+
 
 

@@ -23,12 +23,15 @@ my $tests = join ' ',unix2os('t/Archive/TarGzip.t');
 WriteMakefile(
     NAME => 'Archive::TarGzip',
     DISTNAME => 'Archive-TarGzip',
-    VERSION  => '0.02',
+    VERSION  => '0.03',
     dist     => {COMPRESS => 'gzip',
                 'gz' => 'gz'},
     test     => {TESTS => $tests},
     PREREQ_PM => {'Tie::Gzip' => '0.01',
-                  'File::AnySpec' => '1.11'},
+                  'File::AnySpec' => '1.11',
+                  'Data::Startup' => '0.02',
+                  'File::Package' => '0.00',
+                  'File::Where' => '0.00',},
     
 
     ($] >= 5.005 ?     

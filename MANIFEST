@@ -6,8 +6,12 @@ lib/Archive/TarGzip.pm
 t/Archive/TarGzip.d
 t/Archive/TarGzip.pm
 t/Archive/TarGzip.t
-tlib/File/Package.pm
-tlib/Test/Tech.pm
+t/Archive/File/SmartNL.pm
+t/Archive/File/Package.pm
+t/Archive/Test/Tech.pm
+t/Archive/Data/Secs2.pm
+t/Archive/Data/SecsPack.pm
+t/Archive/Data/Startup.pm
 t/Archive/TarGzip/expected/Makefile.PL
 t/Archive/TarGzip/expected/MANIFEST
 t/Archive/TarGzip/expected/README
